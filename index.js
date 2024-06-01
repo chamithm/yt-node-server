@@ -26,17 +26,19 @@ const server = createServer(async(req,res) => {
             fileReadPool.terminate();
         }
     }else if(req.url == '/about'){
-        res.writeHead(200,{'Content-Type': 'text/html'});
+        // res.writeHead(200,{'Content-Type': 'text/html'});
 
-        try {
-            const result = await fileReadPool.exec('html', ['about.html']);
-            res.end(result);
-        } catch (error) {
-            error(err);
-            res.end();
-        } finally{
-            fileReadPool.terminate();
-        }
+        // try {
+        //     const result = await fileReadPool.exec('html', ['about.html']);
+        //     res.end(result);
+        // } catch (error) {
+        //     error(err);
+        //     res.end();
+        // } finally{
+        //     fileReadPool.terminate();
+        // }
+
+        res.end('<h1>About Page</h1>');
     }
 });
 
